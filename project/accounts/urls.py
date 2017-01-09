@@ -20,5 +20,8 @@ from django.contrib.auth.views import login,logout
 from . import views
 
 urlpatterns = [
-    url(r'^current_datetime/', views.current_datetime),
+    url(r'^login/$', login,{'template_name': 'accounts/login.html'},name='login'),
+    url(r'^current_datetime/$', views.current_datetime, name='current_datetime'),
+    url(r'^add_company/(?P<company_name>)/(?P<post_number>)/(?P<address>)/$', views.add_company, name='add_company'),
+    url(r'^logout/$', logout, name='logout')
 ]
